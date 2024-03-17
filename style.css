@@ -1,0 +1,129 @@
+/*
+Theme Name: PSSH Canada
+Author: Tristan Remple
+Description: A custom theme for pssh.ca
+Version: 1.0
+*/
+
+:root {
+    --cream: #dabb9f;
+    --beige: #c2b29e;
+    --muted-orange: #c79581;
+    --orange: #d4513d;
+    --dark-orange: #b02b17;
+    --off-black: #2e2b27;
+    --text: "Titillium Web";
+    --header: "Shippori Mincho";
+}
+
+body {
+    font-family: var(--text);
+    background-color: var(--beige);
+    color: var(--off-black);
+    font-size: 1em;
+    margin: 0 !important;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--cream);
+    border-bottom: 2px solid var(--off-black);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+footer {
+    background-color: var(--muted-orange);
+    border-top: 2px solid var(--off-black);
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header);
+}
+
+a {
+    color: var(--dark-orange);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--off-black);
+    text-decoration: underline;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nav-btn {
+    display: flex;
+    flex-grow: 1;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: var(--orange);
+    font-weight: bold;
+    color: var(--off-black);
+    text-decoration: none;
+    align-content: center;
+    justify-content: center;
+}
+
+.nav-btn:hover, .nav-btn:focus {
+    background-color: var(--muted-orange);
+    outline: 2px solid var(--off-black);
+    text-decoration: none;
+}
+
+.text-box {
+    background-color: var(--cream);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#home-blurb {
+    position: relative;
+    margin-top: 5rem;
+    right: 30%;
+    width: 25%;
+}
+
+#logo {
+    height: 90%;
+    max-height: 10rem;
+    margin-right: 2rem;
+}
+
+#pseudo-background {
+    position: absolute;
+    width: 100vw;
+    top: 10rem;
+    z-index: -3;
+}
+
+#home-row {
+    margin-top: 10rem;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.home-section {
+    width: 25%;
+    padding-top: 0;
+}
