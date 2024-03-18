@@ -95,6 +95,7 @@ a:hover, a:focus {
     background-color: var(--cream);
     padding: 1rem;
     margin: 1rem;
+    max-width: 90%;
 }
 
 #home-blurb {
@@ -126,4 +127,9 @@ a:hover, a:focus {
 .home-section {
     width: 25%;
     padding-top: 0;
+}
+
+.float {
+    max-width: 50%;
+    float: right;
 }

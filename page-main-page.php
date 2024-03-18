@@ -39,14 +39,16 @@ function truncate($string,$length=120,$append="&hellip;") {
 $results_cat = get_category_by_slug('results');
 $results_args = array(
     'numberposts' => 2,
-    'category' => $results_cat->term_id
+    'category' => $results_cat->term_id,
+    'post_status' => 'publish'
 );
 $results_posts = get_posts($results_args);
 
 $resources_cat = get_category_by_slug('resources');
 $resources_args = array(
     'numberposts' => 2,
-    'category' => $resources_cat->term_id
+    'category' => $resources_cat->term_id,
+    'post_status' => 'publish'
 );
 $resources_posts = get_posts($resources_args);
 
