@@ -5,13 +5,26 @@ Description: A custom theme for pssh.ca
 Version: 1.0
 */
 
-:root {
+.muted {
+    --off-white: #f7ddc6;
     --cream: #dabb9f;
     --beige: #c2b29e;
     --muted-orange: #c79581;
     --orange: #d4513d;
     --dark-orange: #b02b17;
     --off-black: #2e2b27;
+    --text: "Titillium Web";
+    --header: "Shippori Mincho";
+}
+
+.summercamp {
+    --off-white: #ffeddd;
+    --cream: #fff3e5;
+    --beige: #ffd29c;
+    --muted-orange: #ff9e78;
+    --orange: #fe763b;
+    --dark-orange: #d53e0b;
+    --off-black: #141414;
     --text: "Titillium Web";
     --header: "Shippori Mincho";
 }
@@ -33,10 +46,14 @@ header {
     margin-bottom: 1.5rem;
 }
 
+header .flex-col {
+    max-width: calc(100% - 12rem);
+}
+
 footer {
     background-color: var(--muted-orange);
     border-top: 2px solid var(--off-black);
-    padding: 1rem;
+    padding: 1rem 15%;
     margin-top: 1.5rem;
 }
 
@@ -72,7 +89,7 @@ a:hover, a:focus {
     flex-flow: column nowrap;
 }
 
-.nav-btn {
+.nav-btn, .usp-submit {
     display: flex;
     flex-grow: 1;
     padding: 0.5rem;
@@ -83,9 +100,11 @@ a:hover, a:focus {
     text-decoration: none;
     align-content: center;
     justify-content: center;
+    border: none;
 }
 
-.nav-btn:hover, .nav-btn:focus {
+.nav-btn:hover, .nav-btn:focus,
+.usp-submit:hover, .usp-submit:focus {
     background-color: var(--muted-orange);
     outline: 2px solid var(--off-black);
     text-decoration: none;
@@ -132,4 +151,37 @@ a:hover, a:focus {
 .float {
     max-width: 50%;
     float: right;
+}
+
+label {
+    font-weight: bold;
+    width: 200px;
+}
+
+.usp-input, .usp-select, #user-submitted-content {
+    padding: 0.25rem;
+    background-color: var(--off-white);
+    border: 1px solid var(--dark-orange);
+    color: var(--off-black);
+    width: 80% !important;
+}
+
+#insert-media-button {
+    display: none;
+}
+
+.usp-submit {
+    width: 250px;
+    margin: 0 190px;
+}
+
+#foot-text {
+    margin-right: 2rem;
+    width: 70%;
+}
+
+@media screen and (max-width: 800px) {
+    header .flex-col {
+        max-width: 100%;
+    }
 }
