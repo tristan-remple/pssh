@@ -1,8 +1,9 @@
 # TODO
 - add commenting
-- single post page
-- comment form
-- resources category
+- search functionality, especially in resources
+- tag pages
+- check that submissions work
+- lived experience page (category)
 
 ## Resources Posts
 - content: link

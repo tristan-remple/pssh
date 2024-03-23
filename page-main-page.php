@@ -77,7 +77,7 @@ $resources_posts = get_posts($resources_args);
             echo '<p>Pending...</p>';
         } else {
             foreach($resources_posts as $post) {
-                $reg = preg_match('|^\s*https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)\s*$|im', $post->post_content, $matches);
+                $reg = preg_match('/\s*https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/=]*)\s*/im', $post->post_content, $matches);
                 if ($reg) { ?>
                     <a href="<?php echo trim($matches[0]); ?>">
                         <h3><?php echo $post->post_title; ?></h3>

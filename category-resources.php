@@ -16,36 +16,32 @@ $args = array(
 
 $posts = get_posts($args);
 
-function truncate($string,$length=300,$append="&hellip;") {
-    
-    $string = preg_replace('/<!--(.|\s)*?-->/', '', $string);
-    $string = preg_replace('/<p>|<\/p>/', '', $string);
-    $string = trim($string);
-    
-    if(strlen($string) > $length) {
-        $string = wordwrap($string, $length);
-        $string = explode("\n", $string);
-        $string = trim($string[0]) . $append;
-    }
-  
-    return $string;
-}
-
 ?>
 
 <h2><?php echo $category->cat_name; ?></h2>
 <?php foreach($posts as $post) {
     $title = $post->post_title;
     $url = $post->guid;
-    $content = truncate($post->post_content);
     $author = get_the_author_meta('display_name', $post->post_author);
     $date = get_the_date('', $post->id);
+    $excerpt = get_the_excerpt($post->id);
+    $tags = get_the_tags($post->id);
     ?>
     <div class="text-box text-medium">
-        <a class="post-title" href="<?php echo $url; ?>"><h3><?php echo $title; ?></h3></a>
+        <?php $reg = preg_match('/\s*https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/=]*)\s*/im', $post->post_content, $matches); ?>
+        <a class="post-title" href="<?php if ($reg) { echo trim($matches[0]); } else { echo $url; } ?>">
+            <h3><?php echo $title; ?></h3>
+        </a>
         <p class="details">Posted by <?php echo $author; ?> on <?php echo $date; ?></p>
-        <p><?php echo $content; ?></p>
-        <a href="<?php echo $url; ?>">Read More</a>
+        <p><?php echo $excerpt; ?></p>
+        <hr />
+        <div id="tag-box" class="flex-row">
+            <?php foreach ($tags as $tag) { ?>
+                <a class="tag" href="/?tag=<?php echo $tag->name; ?>">
+                    <?php echo ucfirst($tag->name); ?>
+                </a>
+            <?php } ?>
+        </div>
     </div>
 <?php }
 
