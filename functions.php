@@ -49,5 +49,4 @@ function pssh_enqueue() {
 
 add_action('wp_enqueue_scripts', 'pssh_enqueue');
 
-
 ?>
