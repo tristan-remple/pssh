@@ -40,4 +40,10 @@ $excerpt = get_the_excerpt($id);
     </div>
 </div>
 
-<?php get_footer(); ?>
+<?php 
+
+if ( comments_open() || get_comments_number() ) {
+    comments_template();
+}
+
+get_footer(); ?>
