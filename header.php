@@ -16,7 +16,7 @@
         $logo = get_site_icon_url();
     ?>
 </head>
-<body class="muted">
+<body class="grey">
 <header class="flex-row">
     <a id="logo-frame" href="/">
         <img id="logo" src="<?php echo $logo; ?>" alt="PSSH Logo" />

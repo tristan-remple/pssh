@@ -17,7 +17,7 @@ Version: 1.0
     --header: "Shippori Mincho";
 }
 
-.summercamp {
+.orange {
     --off-white: #ffeddd;
     --cream: #fff3e5;
     --beige: #ffd29c;
@@ -25,6 +25,30 @@ Version: 1.0
     --orange: #fe763b;
     --dark-orange: #d53e0b;
     --off-black: #141414;
+    --text: "Titillium Web";
+    --header: "Shippori Mincho";
+}
+
+.purple {
+    --off-white: #feebff;
+    --cream: #ffe5fb;
+    --beige: #d4b0fa;
+    --muted-orange: #dfa0ec;
+    --orange: #a03bfe;
+    --dark-orange: #630bd5;
+    --off-black: #141414;
+    --text: "Arial";
+    --header: "Times New Roman";
+}
+
+.grey {
+    --off-white: #ffeddd;
+    --cream: #f9f2eb;
+    --beige: #e8e1dc;
+    --muted-orange: #D87E77;
+    --orange: #e1d1c8;
+    --dark-orange: #3e3c3c;
+    --off-black: #0f0f0f;
     --text: "Titillium Web";
     --header: "Shippori Mincho";
 }
@@ -51,7 +75,7 @@ header .flex-col {
 }
 
 footer {
-    background-color: var(--muted-orange);
+    background-color: var(--cream);
     border-top: 2px solid var(--off-black);
     padding: 1rem 15%;
     margin-top: 1.5rem;
@@ -197,6 +221,10 @@ label {
     text-align: right;
 }
 
+.wp-block-image > img {
+    width: 90%;
+}
+
 h2 {
     text-align: center;
 }
@@ -212,16 +240,16 @@ header h2 {
 }
 
 .tag {
-    background-color: var(--muted-orange);
+    background-color: var(--orange);
     color: var(--off-black);
     text-decoration: none;
     padding: 0.25rem 1.5rem;
-    border: 2px solid var(--muted-orange);
+    border: 2px solid var(--orange);
     margin: 0.25rem;
 }
 
 .tag:hover {
-    background-color: var(--orange);
+    background-color: var(--muted-orange);
     border-color: var(--off-black);
 }
 
