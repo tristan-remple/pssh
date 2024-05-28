@@ -52,8 +52,15 @@ $resources_args = array(
 );
 $resources_posts = get_posts($resources_args);
 
+$comments_args = array(
+    'number' => 3,
+    'status' => 1
+);
+$comments = get_comments($comments_args);
+
 ?>
 
+<div id="bg-fade"></div>
 <div id="home-row" class="flex-row">
     <div class="home-section text-box">
         <h3>Recent <?php echo $results_cat->cat_name; ?></h3>
@@ -69,6 +76,7 @@ $resources_posts = get_posts($resources_args);
                 <hr>
             <?php }
         } ?>
+        <a href="<?php echo get_term_link($results_cat); ?>" class="nav-btn bottom">See All</a>
     </div>
     <div class="home-section text-box">
     <h3>Recent <?php echo $resources_cat->cat_name; ?></h3>
@@ -85,11 +93,21 @@ $resources_posts = get_posts($resources_args);
                     <p><?php echo truncate($post->post_excerpt); ?></p>
                     <hr>
             <?php } } } ?>
+        <a href="<?php echo get_term_link($resources_cat) . '&tag=Canada'; ?>" class="nav-btn bottom">See All</a>
     </div>
     <div class="home-section text-box">
         <h3>Recent Comments</h3>
         <hr>
-        <p>Pending...</p>
+        <?php if (count($comments) == 0) {
+            echo '<p>Pending...</p>';
+        } else {
+            foreach($comments as $cmt) { ?>
+                    <a href="<?php echo $cmt->__get('guid'); ?>">
+                        <h3>On "<?php echo $cmt->__get('post_title'); ?>"</h3>
+                    </a>
+                    <p><?php echo truncate($cmt->comment_content); ?></p>
+                    <hr>
+            <?php } } ?>
     </div>
 </div>
 
