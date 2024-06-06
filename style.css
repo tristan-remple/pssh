@@ -4,7 +4,7 @@ Theme URI: https://github.com/tristan-remple/pssh
 Author: Tristan Remple
 Author URI: https://aqualunae.ca/
 Description: A custom theme for pssh.ca
-Version: 1.1
+Version: 1.2
 */
 
 .grey {
@@ -95,7 +95,7 @@ a:hover, a:focus {
 #home-blurb {
     position: absolute;
     width: 25%;
-    top: 70%;
+    top: 30rem;
     left: 10%;
 }
 
@@ -190,7 +190,8 @@ label {
 
 .nav-btn:hover, .nav-btn:focus,
 .usp-submit:hover, .usp-submit:focus,
-#submit:hover, #submit:focus {
+#submit:hover, #submit:focus,
+.dropdown-item:hover, .dropdown-item:focus {
     background-color: var(--accent);
     outline: 2px solid var(--off-black);
     text-decoration: none;
@@ -302,6 +303,46 @@ header h2 {
 
 .filter-box h3 {
     margin-top: 0;
+}
+
+.dropdown {
+    height: 1.5rem;
+    overflow: visible;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.dropdown-header, .dropdown-item {
+    width: 100%;
+    text-align: center;
+    color: var(--off-black);
+}
+
+.dropdown-header {
+    margin-bottom: 0.5rem;
+}
+
+.dropdown-item {
+    display: none;
+    background-color: var(--dark-cream);
+    font-weight: bold;
+    color: var(--off-black);
+    text-decoration: none;
+    z-index: 3;
+    padding: 0.5rem;
+    position: relative;
+    left: -0.5rem;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    display: block;
+    z-index: 4;
+}
+
+.dropdown:hover .dropdown-item, .dropdown:focus .dropdown-item,
+.dropdown-header:hover .dropdown-item, .dropdown-header:focus .dropdown-item {
+    display: block;
 }
 
 @media screen and (max-width: 800px) {
