@@ -1,6 +1,11 @@
 <?php
 
-$tags = get_terms( 'post_tag', 'orderby=count&hide_empty=0' );
+$tags = get_terms(array(
+    "taxonomy" => "post_tag",
+    "hide_empty" => true,
+    "orderby" => "count",
+    "order" => "DESC"
+));
 
 ?>
 
@@ -16,7 +21,7 @@ $tags = get_terms( 'post_tag', 'orderby=count&hide_empty=0' );
     <label for="tags[]">Search by tags</label>
     <select name="tags[]" id="tags" multiple>
         <?php foreach ($tags as $tag) { ?>
-            <option value="<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></option>
+            <option value="<?php echo str_replace(" ", "-", $tag->slug); ?>"><?php echo $tag->name; ?></option>
         <?php } ?>
     </select>
 

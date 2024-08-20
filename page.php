@@ -3,7 +3,7 @@
 get_header();
 
 $id = get_queried_object_id();
-$page = get_page($id);
+$page = get_post($id);
 $title = $page->post_title;
 $content = $page->post_content;
 

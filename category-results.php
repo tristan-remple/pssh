@@ -7,7 +7,7 @@ include 'filter-action.php';
 
 get_header();
 
-$paged = get_query_var( 'page' ) ? int(get_query_var( 'page' )) : 1;
+$paged = get_query_var( 'page' ) ? intval(get_query_var( 'page' )) : 1;
 $tag = preg_replace('/[^a-z0-9\-\+]/i', '', get_query_var('tag'));
 $search = preg_replace('/[^a-z0-9\-\+]/i', '', get_query_var('s'));
 

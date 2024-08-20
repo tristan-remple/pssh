@@ -3,7 +3,7 @@
 get_header();
 
 $id = get_queried_object_id();
-$page = get_page($id);
+$page = get_post($id);
 $title = $page->post_title;
 $content = $page->post_content;
 
@@ -18,7 +18,7 @@ $content = $page->post_content;
 
 $category = get_category_by_slug('results');
 
-$paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+$paged = get_query_var('page') ? intval(get_query_var('page')) : 1;
 
 $args = array(
     'posts_per_page' => 10,

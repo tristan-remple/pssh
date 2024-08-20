@@ -3,7 +3,7 @@
 get_header();
 
 $id = get_queried_object_id();
-$page = get_page($id);
+$page = get_post($id);
 $title = $page->post_title;
 $content = $page->post_content;
 $thumb_id = get_post_thumbnail_id($id);
@@ -93,7 +93,7 @@ $comments = get_comments($comments_args);
                     <p><?php echo truncate($post->post_excerpt); ?></p>
                     <hr>
             <?php } } } ?>
-        <a href="<?php echo get_term_link($resources_cat) . '&tag=Canada'; ?>" class="nav-btn bottom">See All</a>
+        <a href="<?php echo get_term_link($resources_cat) . '?tag=Canada'; ?>" class="nav-btn bottom">See All</a>
     </div>
     <div class="home-section text-box">
         <h3>Recent Comments</h3>
@@ -102,11 +102,11 @@ $comments = get_comments($comments_args);
             echo '<p>Pending...</p>';
         } else {
             foreach($comments as $cmt) { ?>
-                    <a href="<?php echo $cmt->__get('guid'); ?>">
-                        <h3>On "<?php echo $cmt->__get('post_title'); ?>"</h3>
-                    </a>
-                    <p><?php echo truncate($cmt->comment_content); ?></p>
-                    <hr>
+                <a href="<?php echo $cmt->__get('guid'); ?>">
+                    <h3>On "<?php echo $cmt->__get('post_title'); ?>"</h3>
+                </a>
+                <p><?php echo truncate($cmt->comment_content); ?></p>
+                <hr>
             <?php } } ?>
     </div>
 </div>

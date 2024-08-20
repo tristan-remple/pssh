@@ -11,4 +11,3 @@
         _e( 'Sorry, no posts matched your criteria.', 'textdomain' );
     endif;
     get_footer();
-?>

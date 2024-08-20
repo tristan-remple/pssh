@@ -30,16 +30,6 @@ if ( ! function_exists( 'pssh_setup' ) ) :
 			'home' => __( 'Call to Action', 'Put one link here to appear on the Home page.' ),
 		) );
 
-		// register_sidebar( array(
-		// 	'name' => __( 'Social Media', 'PSSH Canada' ),
-		// 	'description' => 'A sidebar that can display one social media feed, like LinkedIn, YouTube, or Instagram.',
-		// 	'id' => 'socmed',
-		// 	'before_widget' => '<aside id="social-media">',
-		// 	'after_widget' => '</aside>',
-		// 	'before_title' => '<h3 class="social-title">',
-		// 	'after_title' => '</h3>',
-		// ) );
-
 		/**
 		 * Enable support for the following post formats:
 		 * aside, gallery, quote, image, and video
@@ -64,5 +54,3 @@ function pssh_enqueue() {
 }
 
 add_action('wp_enqueue_scripts', 'pssh_enqueue');
-
-?>
