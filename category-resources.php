@@ -62,7 +62,7 @@ foreach($posts as $post) {
     </div>
 <?php }
 
-$query_string = "/?page=";
+$query_string = "/category/". $category->slug ."/?page=";
 $next = $paged + 1;
 $prev = $paged - 1;
 $tag = preg_replace('/[^a-z0-9\-\+]/i', '', get_query_var('tag'));
@@ -86,7 +86,7 @@ $tag = preg_replace('/[^a-z0-9\-\+]/i', '', get_query_var('tag'));
 
     $next_posts = get_posts($next_args);
     if (count($next_posts) != 0) { ?>
-        <a class="tag" href="<?php echo $query_string . strval($next); ?>">NEXT</a>
+        <a class="tag" href="<?php echo $query_string . strval($next); if (!empty($tag)) { echo '&tag=' . $tag; } ?>">NEXT</a>
     <?php } ?>
 </div>
 
