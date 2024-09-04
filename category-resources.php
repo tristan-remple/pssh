@@ -53,18 +53,19 @@ foreach($posts as $post) {
         <p><?php echo $excerpt; ?></p>
         <hr />
         <div id="tag-box" class="flex-row">
-            <?php foreach ($tags as $tag) { ?>
-                <a class="tag" href="/category/<?php echo $category->slug; ?>/?tag=<?php echo str_replace(" ", "-", $tag->slug); ?>">
-                    <?php echo ucfirst($tag->name); ?>
+            <?php foreach ($tags as $ptag) { ?>
+                <a class="tag" href="/category/<?php echo $category->slug; ?>/?tag=<?php echo str_replace(" ", "-", $ptag->slug); ?>">
+                    <?php echo ucfirst($ptag->name); ?>
                 </a>
             <?php } ?>
         </div>
     </div>
 <?php }
 
-$query_string = "/?&page=";
+$query_string = "/?page=";
 $next = $paged + 1;
 $prev = $paged - 1;
+$tag = preg_replace('/[^a-z0-9\-\+]/i', '', get_query_var('tag'));
 
 ?>
 <div class="flex-row">
@@ -85,7 +86,7 @@ $prev = $paged - 1;
 
     $next_posts = get_posts($next_args);
     if (count($next_posts) != 0) { ?>
-        <a class="tag" href="<?php echo $query_string . $next; ?>">NEXT</a>
+        <a class="tag" href="<?php echo $query_string . strval($next); ?>">NEXT</a>
     <?php } ?>
 </div>
 
