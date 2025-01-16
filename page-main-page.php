@@ -52,11 +52,13 @@ $resources_args = array(
 );
 $resources_posts = get_posts($resources_args);
 
-$comments_args = array(
-    'number' => 3,
-    'status' => 1
+$literature_cat = get_category_by_slug('literature');
+$literature_args = array(
+    'numberposts' => 2,
+    'category' => $literature_cat->term_id,
+    'post_status' => 'publish'
 );
-$comments = get_comments($comments_args);
+$literature_posts = get_posts($literature_args);
 
 ?>
 
@@ -96,18 +98,21 @@ $comments = get_comments($comments_args);
         <a href="<?php echo get_term_link($resources_cat) . '?tag=Canada'; ?>" class="nav-btn bottom">See All</a>
     </div>
     <div class="home-section text-box">
-        <h3>Recent Comments</h3>
-        <hr>
-        <?php if (count($comments) == 0) {
+    <h3>Recent <?php echo $literature_cat->cat_name; ?></h3>
+    <hr>
+        <?php if (count($literature_posts) == 0) {
             echo '<p>Pending...</p>';
         } else {
-            foreach($comments as $cmt) { ?>
-                <a href="<?php echo $cmt->__get('guid'); ?>">
-                    <h3>On "<?php echo $cmt->__get('post_title'); ?>"</h3>
-                </a>
-                <p><?php echo truncate($cmt->comment_content); ?></p>
-                <hr>
-            <?php } } ?>
+            foreach($literature_posts as $post) {
+                $reg = preg_match('/\s*https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/=]*)\s*/im', $post->post_content, $matches);
+                if ($reg) { ?>
+                    <a href="<?php echo trim($matches[0]); ?>">
+                        <h3><?php echo $post->post_title; ?></h3>
+                    </a>
+                    <p><?php echo truncate($post->post_excerpt); ?></p>
+                    <hr>
+            <?php } } } ?>
+        <a href="<?php echo get_term_link($literature_cat) . '?tag=Canada'; ?>" class="nav-btn bottom">See All</a>
     </div>
 </div>
 
